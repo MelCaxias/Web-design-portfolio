@@ -1,25 +1,128 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
+/* Paleta de Cores */
+:root {
+    --lilas: #B088CC;
+    --magenta: #C541FF;
+    --azul-escuro: #1F2937;
+    --cinza-azulado: #64748B;
+    --lilas-claro: #F9F5FF;
+    --branco: #FFFFFF;
+    --cinza-claro: #F1F5F9;
+    --amarelo: #FBBF24;
+    --preto: #000000;
+}
+
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 20px;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--lilas-claro);
+    color: var(--cinza-azulado);
+    line-height: 1.6;
 }
 
-main img {
-    max-width: 100%;
-    height: auto;
+/* Header */
+.header {
+    background-color: var(--branco);
+    border-bottom: 2px solid var(--lilas);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-footer {
-    margin-top: 20px;
-    background: #333;
-    color: #fff;
+.header .logo {
+    height: 50px;
+}
+
+.header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--lilas);
+    font-weight: bold;
+}
+
+.header nav a:hover {
+    color: var(--magenta);
+}
+
+/* Banner */
+.banner {
+    background-color: var(--lilas);
+    color: var(--branco);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+}
+
+.banner p {
+    margin: 10px 0;
+}
+
+.banner button {
+    background-color: var(--amarelo);
+    color: var(--preto);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.banner button:hover {
+    background-color: var(--magenta);
+    color: var(--branco);
+}
+
+/* Produtos */
+.produtos {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.product-card {
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 8px;
+    display: inline-block;
+    width: 250px;
+    margin: 20px;
+    padding: 15px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    color: var(--azul-escuro);
+    margin-top: 10px;
+}
+
+.product-card button {
+    background-color: var(--lilas);
+    color: var(--branco);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: var(--magenta);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--lilas);
+    color: var(--branco);
+    text-align: center;
     padding: 10px;
 }
