@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melinda</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Melinda Arts & Crafts</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header> 
-        <h1>Bem-vindo(a) a Melinda Arts N'Crafts - Papelaria Criativa e Personalizada</h1>
+    <header class="header">
+        <img src="images/logo.png" alt="Logo Melinda Arts & Crafts" class="logo">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#tutoriais">Tutoriais</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
     </header>
-    <main>
-        <img src="banner.png" alt="Banner do site">
-        <p>Em breve você irá encontrar nossos produtos e também todas novidades que estamos produzindo!</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 - Melinda</p>
+
+    <section class="banner" id="home">
+        <h1>Transforme ideias em arte!</h1>
+        <p>Projetos criativos feitos com amor e dedicação.</p>
+        <button>Conheça nossos produtos</button>
+    </section>
+
+    <section class="produtos" id="produtos">
+        <h2>Produtos em Destaque</h2>
+        <div class="product-card">
+            <img src="images/banner.jpg" alt="Produto 1">
+            <h3>Kit DIY Papelaria</h3>
+            <p>Transforme seu espaço criativo com este kit exclusivo.</p>
+            <button>Ver Mais</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 - Melinda Arts & Crafts</p>
     </footer>
 </body>
 </html>
