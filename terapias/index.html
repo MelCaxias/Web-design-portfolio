@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Holístico — Gestão de Terapias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="app-header-inner">
+            <h1>🌿 Espaço Holístico</h1>
+            <a class="link-portfolio" href="../">← Portfólio</a>
+        </div>
+        <nav class="tabs" aria-label="Navegação principal">
+            <button class="tab ativa" data-tab="inicio" aria-current="page">Início</button>
+            <button class="tab" data-tab="agenda">Agenda</button>
+            <button class="tab" data-tab="clientes">Clientes</button>
+            <button class="tab" data-tab="terapias">Terapias</button>
+            <button class="tab" data-tab="financeiro">Financeiro</button>
+        </nav>
+    </header>
+
+    <main class="conteudo">
+        <!-- Início / Dashboard -->
+        <section class="view" id="view-inicio">
+            <div id="inicio-conteudo"></div>
+        </section>
+
+        <!-- Agenda -->
+        <section class="view escondida" id="view-agenda">
+            <div class="view-topo">
+                <h2>Agenda de Sessões</h2>
+                <button class="btn btn-primario" data-action="agenda-nova">+ Nova sessão</button>
+            </div>
+
+            <form class="card form escondida" id="form-sessao">
+                <h3 id="form-sessao-titulo">Nova sessão</h3>
+                <input type="hidden" id="sessao-id">
+                <div class="form-grid">
+                    <div class="form-grupo">
+                        <label for="sessao-cliente">Cliente *</label>
+                        <select id="sessao-cliente" required></select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="sessao-terapia">Terapia *</label>
+                        <select id="sessao-terapia" required></select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="sessao-data">Data *</label>
+                        <input type="date" id="sessao-data" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="sessao-hora">Horário *</label>
+                        <input type="time" id="sessao-hora" required>
+                    </div>
+                    <div class="form-grupo form-grupo-inteiro">
+                        <label for="sessao-obs">Observações</label>
+                        <textarea id="sessao-obs" rows="2" placeholder="Ex.: focar em relaxamento, dor no ombro..."></textarea>
+                    </div>
+                </div>
+                <div class="form-acoes">
+                    <button type="submit" class="btn btn-primario">Salvar</button>
+                    <button type="button" class="btn" data-action="agenda-cancelar-form">Cancelar</button>
+                </div>
+            </form>
+
+            <div class="filtros" id="agenda-filtros">
+                <button class="filtro ativa" data-filtro="proximas">Próximas</button>
+                <button class="filtro" data-filtro="todas">Todas</button>
+                <button class="filtro" data-filtro="realizada">Realizadas</button>
+                <button class="filtro" data-filtro="cancelada">Canceladas</button>
+            </div>
+
+            <div id="agenda-lista"></div>
+        </section>
+
+        <!-- Clientes -->
+        <section class="view escondida" id="view-clientes">
+            <div class="view-topo">
+                <h2>Clientes</h2>
+                <button class="btn btn-primario" data-action="cliente-novo">+ Novo cliente</button>
+            </div>
+
+            <form class="card form escondida" id="form-cliente">
+                <h3 id="form-cliente-titulo">Novo cliente</h3>
+                <input type="hidden" id="cliente-id">
+                <div class="form-grid">
+                    <div class="form-grupo">
+                        <label for="cliente-nome">Nome *</label>
+                        <input type="text" id="cliente-nome" required placeholder="Nome completo">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="cliente-telefone">Telefone</label>
+                        <input type="tel" id="cliente-telefone" placeholder="(11) 99999-0000">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="cliente-email">E-mail</label>
+                        <input type="email" id="cliente-email" placeholder="email@exemplo.com">
+                    </div>
+                    <div class="form-grupo form-grupo-inteiro">
+                        <label for="cliente-anamnese">Anamnese / Observações</label>
+                        <textarea id="cliente-anamnese" rows="3" placeholder="Histórico de saúde, preferências, queixas..."></textarea>
+                    </div>
+                </div>
+                <div class="form-acoes">
+                    <button type="submit" class="btn btn-primario">Salvar</button>
+                    <button type="button" class="btn" data-action="cliente-cancelar-form">Cancelar</button>
+                </div>
+            </form>
+
+            <div class="form-grupo busca">
+                <label class="sr-only" for="cliente-busca">Buscar cliente</label>
+                <input type="search" id="cliente-busca" placeholder="🔍 Buscar por nome...">
+            </div>
+
+            <div id="clientes-lista"></div>
+        </section>
+
+        <!-- Terapias -->
+        <section class="view escondida" id="view-terapias">
+            <div class="view-topo">
+                <h2>Tipos de Terapia</h2>
+                <button class="btn btn-primario" data-action="terapia-nova">+ Nova terapia</button>
+            </div>
+
+            <form class="card form escondida" id="form-terapia">
+                <h3 id="form-terapia-titulo">Nova terapia</h3>
+                <input type="hidden" id="terapia-id">
+                <div class="form-grid">
+                    <div class="form-grupo">
+                        <label for="terapia-nome">Nome *</label>
+                        <input type="text" id="terapia-nome" required placeholder="Ex.: Reiki, Massagem relaxante">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="terapia-duracao">Duração (min) *</label>
+                        <input type="number" id="terapia-duracao" required min="5" step="5" placeholder="60">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="terapia-preco">Preço (R$) *</label>
+                        <input type="number" id="terapia-preco" required min="0" step="0.01" placeholder="120.00">
+                    </div>
+                </div>
+                <div class="form-acoes">
+                    <button type="submit" class="btn btn-primario">Salvar</button>
+                    <button type="button" class="btn" data-action="terapia-cancelar-form">Cancelar</button>
+                </div>
+            </form>
+
+            <div id="terapias-lista"></div>
+        </section>
+
+        <!-- Financeiro -->
+        <section class="view escondida" id="view-financeiro">
+            <div class="view-topo">
+                <h2>Financeiro</h2>
+                <div class="form-grupo">
+                    <label class="sr-only" for="financeiro-mes">Mês</label>
+                    <input type="month" id="financeiro-mes">
+                </div>
+            </div>
+            <div id="financeiro-conteudo"></div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>Espaço Holístico — os dados ficam salvos apenas neste navegador.</p>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/terapias.js"></script>
+    <script src="js/clientes.js"></script>
+    <script src="js/agenda.js"></script>
+    <script src="js/financeiro.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
