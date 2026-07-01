@@ -1,0 +1,467 @@
+/* ============================================
+   Espaço Holístico — Gestão de Terapias
+   Paleta herdada do portfólio (styles.css raiz)
+   ============================================ */
+
+:root {
+    --lilas: #B088CC;
+    --magenta: #C541FF;
+    --azul-escuro: #1F2937;
+    --cinza-azulado: #64748B;
+    --lilas-claro: #F9F5FF;
+    --branco: #FFFFFF;
+    --cinza-claro: #F3F4F6;
+    --amarelo: #FBBF24;
+    --preto: #111827;
+    /* cores semânticas do app */
+    --verde: #34D399;
+    --verde-escuro: #047857;
+    --vermelho: #F87171;
+    --vermelho-escuro: #B91C1C;
+    --borda: #E9E0F5;
+    --sombra: 0 1px 4px rgba(31, 41, 55, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--lilas-claro);
+    color: var(--azul-escuro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Header e abas ---------- */
+
+.app-header {
+    background-color: var(--lilas);
+    color: var(--branco);
+    padding: 16px 16px 0;
+}
+
+.app-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.app-header h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.link-portfolio {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.link-portfolio:hover {
+    text-decoration: underline;
+}
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    max-width: 960px;
+    margin: 12px auto 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tab {
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 18px;
+    min-height: 44px;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: var(--branco);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+.tab:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.tab.ativa {
+    background-color: var(--lilas-claro);
+    color: var(--azul-escuro);
+    font-weight: 600;
+}
+
+/* ---------- Layout geral ---------- */
+
+.conteudo {
+    flex: 1;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+.view.escondida,
+.form.escondida {
+    display: none;
+}
+
+.view-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.view-topo h2 {
+    font-size: 1.25rem;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8rem;
+    color: var(--cinza-azulado);
+}
+
+/* ---------- Cartões e listas ---------- */
+
+.card {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.card-resumo .rotulo {
+    font-size: 0.8rem;
+    color: var(--cinza-azulado);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.card-resumo .valor {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--magenta);
+}
+
+.item-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cinza-claro);
+}
+
+.item-lista:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    flex: 1;
+    min-width: 180px;
+}
+
+.item-titulo {
+    font-weight: 600;
+}
+
+.item-detalhe {
+    font-size: 0.85rem;
+    color: var(--cinza-azulado);
+}
+
+.item-acoes {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.dia-grupo {
+    margin-bottom: 8px;
+}
+
+.dia-titulo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cinza-azulado);
+    margin: 16px 0 8px;
+}
+
+.dia-titulo::first-letter {
+    text-transform: uppercase;
+}
+
+.vazio {
+    text-align: center;
+    color: var(--cinza-azulado);
+    padding: 32px 16px;
+    background-color: var(--branco);
+    border: 1px dashed var(--borda);
+    border-radius: 8px;
+}
+
+/* ---------- Botões ---------- */
+
+.btn {
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 10px 16px;
+    min-height: 44px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--cinza-claro);
+}
+
+.btn-primario {
+    background-color: var(--lilas);
+    border-color: var(--lilas);
+    color: var(--branco);
+}
+
+.btn-primario:hover {
+    background-color: var(--magenta);
+    border-color: var(--magenta);
+}
+
+.btn-perigo {
+    color: var(--vermelho-escuro);
+    border-color: var(--vermelho);
+}
+
+.btn-perigo:hover {
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+.btn-mini {
+    padding: 6px 10px;
+    min-height: 36px;
+    font-size: 0.8rem;
+}
+
+/* ---------- Badges de status ---------- */
+
+.badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.badge-agendada {
+    background-color: var(--lilas);
+    color: var(--branco);
+}
+
+.badge-realizada {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+.badge-cancelada {
+    background-color: var(--cinza-claro);
+    color: var(--cinza-azulado);
+}
+
+.badge-pago {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+.badge-pendente {
+    background-color: var(--amarelo);
+    color: var(--preto);
+}
+
+.badge-inativa {
+    background-color: var(--cinza-claro);
+    color: var(--cinza-azulado);
+}
+
+/* ---------- Formulários ---------- */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-grupo label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    font-family: inherit;
+    font-size: 16px; /* evita zoom automático no iOS */
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+    outline: 2px solid var(--lilas);
+    outline-offset: 1px;
+}
+
+.form-acoes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.busca {
+    margin-bottom: 16px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Filtros ---------- */
+
+.filtros {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+
+.filtro {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    min-height: 40px;
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    background-color: var(--branco);
+    color: var(--cinza-azulado);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filtro.ativa {
+    background-color: var(--lilas);
+    border-color: var(--lilas);
+    color: var(--branco);
+    font-weight: 600;
+}
+
+/* ---------- Detalhe do cliente ---------- */
+
+.cliente-detalhe {
+    background-color: var(--lilas-claro);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+.cliente-detalhe h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--cinza-azulado);
+    margin: 10px 0 4px;
+}
+
+.cliente-detalhe h4:first-child {
+    margin-top: 0;
+}
+
+/* ---------- Telas maiores ---------- */
+
+@media (min-width: 700px) {
+    .app-header {
+        padding: 20px 24px 0;
+    }
+
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .conteudo {
+        padding: 28px 24px 48px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grupo-inteiro {
+        grid-column: 1 / -1;
+    }
+}
